@@ -4,11 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home page</title>
+  <title><%= title %></title>
 </head>
 
 <body>
-  There should be message '<%= message %>'
+  <h2>messages: </h2>
+  <ul>
+    <% messages.forEach(message => { %>
+    <li>
+      <p>Text: <%= message.text %></p>
+      <p>User: <%= message.user %></p>
+      <p>Added: <%= message.added %></p>
+    </li>
+    <% }) %>
+  </ul>
 </body>
 
 </html>

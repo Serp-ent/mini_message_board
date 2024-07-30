@@ -1,9 +1,24 @@
-const { Router } = require('express');
+const RootRouter = require('express').Router();
 
-const RootRouter = Router();
+const messages = [
+  {
+    text: "Hi there!",
+    user: "Amando",
+    added: new Date()
+  },
+  {
+    text: "Hello World!",
+    user: "Charles",
+    added: new Date()
+  }
+];
 
 RootRouter.get('/', (req, res) => {
-  res.render('index', { message: "Hello World" });
+  res.render('index',
+    {
+      title: "Mini Messageboard",
+      messages: messages
+    });
 });
 
 module.exports = RootRouter;
