@@ -13,12 +13,14 @@ messageRouter.get('/', (req, res) => {
 
 messageRouter.post('/', (req, res) => {
   // TODO: addd to the messages
-  messages.push(
-    {
-      text: req.body.text,
-      user: req.body.authorName,
-      added: new Date(),
-    });
+  const msg = {
+    id: messages.length,
+    text: req.body.text,
+    user: req.body.authorName,
+    added: new Date(),
+
+  };
+  messages.push(msg);
 
   res.redirect('/');
 });
