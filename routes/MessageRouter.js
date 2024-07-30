@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const express = require('express');
+const messages = require('../messages');
 
 const messageRouter = Router();
 
@@ -11,10 +12,15 @@ messageRouter.get('/', (req, res) => {
 
 
 messageRouter.post('/', (req, res) => {
-  console.log(`User sent: ${req.body}`);
-  console.log(`author name: ${req.body.authorName}`);
-  console.log(`text: ${req.body.text}`);
-  console.log(`date: ${new Date()}`);
+  // TODO: addd to the messages
+  messages.push(
+    {
+      text: req.body.text,
+      user: req.body.authorName,
+      added: new Date(),
+    });
+
+  res.redirect('/');
 });
 
 module.exports = messageRouter;
