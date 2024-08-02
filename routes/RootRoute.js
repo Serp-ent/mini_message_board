@@ -1,14 +1,12 @@
 const RootRouter = require('express').Router();
 const messages = require('../messages');
+const db = require('../db/queries');
 
 
-RootRouter.get('/', (req, res) => {
-  res.render('index',
-    {
-      title: "Mini Messageboard",
-      messages: messages
-    });
+RootRouter.get('/', async (req, res) => {
+  const messages = await db.getAllMessages();
+
+  res.render('index', { title: 'All messages', messages });
 });
-
 
 module.exports = RootRouter;

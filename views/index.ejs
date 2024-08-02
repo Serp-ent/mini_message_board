@@ -11,11 +11,11 @@
   <a href="/new">Add new message</a>
   <h2>messages: </h2>
   <ul>
-    <% messages.forEach(message => { %>
+    <% messages.forEach(msg => { %>
     <li>
-      <p>Text: <%= message.text %></p>
-      <p>User: <%= message.user %></p>
-      <a href="/msgs/<%=message.id%>"><button>Open</button></a>
+      <p>Text: <%= msg.text %></p>
+      <p>User: <%= msg.username %> at <%= msg.added%></p>
+      <a href="/msgs/<%=msg.id%>"><button>Open</button></a>
     </li>
     <% }) %>
   </ul>
