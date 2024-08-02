@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const express = require('express');
-const messages = require('../messages');
+const db = require('../db/queries');
 
 const messageRouter = Router();
 
@@ -14,13 +14,12 @@ messageRouter.get('/', (req, res) => {
 messageRouter.post('/', (req, res) => {
   // TODO: addd to the messages
   const msg = {
-    id: messages.length,
     text: req.body.text,
-    user: req.body.authorName,
+    username: req.body.authorName,
     added: new Date(),
-
   };
-  messages.push(msg);
+  console.log('inserting', msg);
+  db.insertMessage(msg);
 
   res.redirect('/');
 });

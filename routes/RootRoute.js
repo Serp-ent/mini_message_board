@@ -1,5 +1,4 @@
 const RootRouter = require('express').Router();
-const messages = require('../messages');
 const db = require('../db/queries');
 
 

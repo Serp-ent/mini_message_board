@@ -6,6 +6,11 @@ async function getAllMessages() {
   return rows;
 }
 
+async function insertMessage(msg) {
+  await pool.query('INSERT INTO messages (text, username, added) VALUES ($1, $2, $3)', [msg.text, msg.username, msg.added]);
+}
+
 module.exports = {
   getAllMessages,
+  insertMessage,
 }

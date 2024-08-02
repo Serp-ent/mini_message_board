@@ -1,7 +1,6 @@
 const express = require('express');
 const RootRouter = require('./routes/RootRoute');
 const messageRouter = require('./routes/MessageRouter');
-const messages = require('./messages');
 
 const PORT = 3000;
 const app = express();
